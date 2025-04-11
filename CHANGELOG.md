@@ -23,3 +23,9 @@ Usuario de github: Jun1el
 - Comprobamos exitosamente los test.
 - Modificamos el Readme.md por Changelog.md
 
+## Dia 3
+
+- Primero hicimos pruebas de conexion del docker compose exitosamente para lo cual agregamos un print a main para mostrar un mensaje sencillo
+- Agregamos la clase Quiz y run_quiz adaptados a nuestro codigo exitosamente 
+- Modificamos el CHANGELOG.md para declaras los avanzes del dia de hoy 
+
