@@ -1,3 +1,4 @@
+from db import get_questions
 class Question:
     def __init__(self, description, options, correct_answer, difficulty):
         self.description = description
@@ -34,12 +35,13 @@ class Quiz:
     
 def run_quiz():
     quiz = Quiz()
-    # Creamos preguntas usando índices para respuestas correctas
-    q1 = Question("¿Cuál es la capital de Perú?", ["Lima", "Cusco", "Arequipa"], 0, "Fácil")
-    q2 = Question("¿Cuánto es 2 + 2?", ["3", "4", "5"], 1, "Fácil")
-    
-    quiz.add_question(q1)
-    quiz.add_question(q2)
+    try:
+        for desc, options, correct, diff in get_questions():
+            q = Question(desc, options, correct, diff)
+            quiz.add_question(q)
+    except Exception as e:
+        print(f"Error al cargar preguntas desde la base de datos: {e}")
+        return
 
     while True:
         question = quiz.get_next_question()
