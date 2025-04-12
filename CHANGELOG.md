@@ -29,3 +29,11 @@ Usuario de github: Jun1el
 - Agregamos la clase Quiz y run_quiz adaptados a nuestro codigo exitosamente 
 - Modificamos el CHANGELOG.md para declaras los avanzes del dia de hoy 
 
+## Dia 4
+- Primeramente definimos nuestro init.sql para crear la bd que aun no habiamos creado y logramos que exitosamente corriera en Docker.
+- Asimismo modificamos run_quiz para que obtuviera los datos desde la bd 
+- Hicimos correcciones de ligeros erroes en db.py y compose para un mejor funcionamiento ya que modularizamos el proyecto para tenerlo mas organizado y adaptable a cambios 
+- Al mismo tiempo agregamos para que al final muestre las respuesta correctas e incorrectas al acabar el juego.
+- Finalmente creamos pruebas unitarias sencillas para nuestra clase quiz 
+- Modificamos el CHANGELOG para declarar los cambios del dia de hoy.
+- 
