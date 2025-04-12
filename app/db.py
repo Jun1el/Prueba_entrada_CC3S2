@@ -4,9 +4,9 @@ def get_connection():
     # conexion a la base de datos  
     return psycopg2.connect(
         dbname="trivia_db",
-        user="tu_usuario",
-        password="tu_contraseña",
-        host="localhost",
+        user="postgres",
+        password="postgres",
+        host="db",
         port="5432"
     )
 
