@@ -3,6 +3,7 @@ Autor : Andres La Torre Vasquez
 
 Usuario de github: Jun1el
 
+link : https://github.com/Jun1el/Prueba_entrada_CC3S2
 ## Dia 1 
 - Creamos la estructura del proyecto
 - Crear archivos Dockerfile y docker-compose.yml con el contenido indicado.
@@ -36,4 +37,10 @@ Usuario de github: Jun1el
 - Al mismo tiempo agregamos para que al final muestre las respuesta correctas e incorrectas al acabar el juego.
 - Finalmente creamos pruebas unitarias sencillas para nuestra clase quiz 
 - Modificamos el CHANGELOG para declarar los cambios del dia de hoy.
-- 
+
+## Dia 5
+
+- Agregamos el score del participante y puntaje de acuerdo a la dificultad de la pregunta
+- Mejoramos la interfaz del juego mostrando el score final, y los puntos por pregunta obtenidos y agregamos test para Quiz.py
+- Eliminamos __pycache__ del repositorio y actualizamos el .gitignore para no subir archivos innecesarios
+- Mejoramos la documentacion del proyecto 

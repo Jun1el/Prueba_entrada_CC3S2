@@ -11,14 +11,15 @@ def get_connection():
     )
 
 def get_questions():
-    conn = get_connection()
-    cur = conn.cursor()
+    conn = get_connection()# Establecemos la conexión a la base de datos
+    cur = conn.cursor()# Creamos un cursor para ejecutar la consulta SQL
+    # Ejecutamos la consulta para obtener las primeras 10 preguntas
     cur.execute("SELECT description, options, correct_answer, difficulty FROM questions LIMIT 10")
-    rows = cur.fetchall()
-    cur.close()
-    conn.close()
+    rows = cur.fetchall()# Obtienemos todas las filas resultantes de la consulta
+    cur.close() # Cierra el cursor
+    conn.close() # Cerramos la conexión a la base de datos
     
-    questions = []
+    questions = []# Lista para almacenar las preguntas procesadas
     for desc, options, correct, diff in rows:
         # Convertimos opciones de string a lista si viene en formato string
         if isinstance(options, str):
