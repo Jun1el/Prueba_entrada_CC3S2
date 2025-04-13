@@ -1,4 +1,4 @@
-from .trivia import Question
+from trivia import Question
 class Quiz:
     def __init__(self):
         self.questions = []
