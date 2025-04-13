@@ -1,11 +1,11 @@
-from app.trivia import Question
+from trivia import Question
 class Quiz:
     def __init__(self):
         self.questions = []
         self.current_question_index = 0
         self.correct_answers = 0
         self.incorrect_answers = 0
-
+        self.score = 0
 
     def add_question(self, question):
         self.questions.append(question)
@@ -20,6 +20,12 @@ class Quiz:
     def answer_question(self, question, answer):
         if question.is_correct(answer):
             self.correct_answers += 1
+            if question.difficulty == "Fácil":
+                self.score += 1
+            elif question.difficulty == "Media":
+                self.score += 2
+            elif question.difficulty == "Difícil":
+                self.score += 3
             return True
         else:
             self.incorrect_answers += 1

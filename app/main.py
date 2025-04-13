@@ -2,6 +2,8 @@ from trivia import Question
 from quiz import Quiz
 from db import get_questions
 def run_quiz():
+    print("¡Bienvenido al juego de Trivia!")
+    print("Responde las preguntas escribiendo el número de la opción correcta.\n")
     quiz = Quiz()
     try:
         for desc, options, correct, diff in get_questions():
@@ -32,6 +34,7 @@ def run_quiz():
     print("\n--- Resultado final ---")
     print(f"Respuestas correctas: {quiz.correct_answers}")
     print(f"Respuestas incorrectas: {quiz.incorrect_answers}")
+    print(f"Puntaje total: {quiz.score}")
 
 if __name__ == "__main__":
     run_quiz()
