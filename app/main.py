@@ -1,8 +1,19 @@
 from trivia import Question
 from quiz import Quiz
 from db import get_questions
+
+def mostrar_titulo():
+    print("""
+========================================
+    🎉 BIENVENIDO A LA TRIVIA 🎉
+========================================
+Responde las preguntas escribiendo el número 
+de la opción correcta. ¡Buena suerte!
+""")
+
 def run_quiz():
     print("¡Bienvenido al juego de Trivia!")
+    print("Instrucciones:")
     print("Responde las preguntas escribiendo el número de la opción correcta.\n")
     quiz = Quiz()
     try:
@@ -18,19 +29,27 @@ def run_quiz():
         if not question:
             print("¡Juego terminado!")
             break
-
-        print(f"\n{question.description} (Dificultad: {question.difficulty})")
+        
+        print("----------------------------------------")
+        print(f"📌 Pregunta: {question.description}")
+        print(f"🎯 Dificultad: {question.difficulty}")
+        print("----------------------------------------")
         for idx, option in enumerate(question.options):
             print(f"{idx}. {option}")
         
         try:
-            answer = int(input("Elige tu respuesta (número): "))
-            if quiz.answer_question(question, answer):  # Aquí usamos el método answer_question
-                print("¡Correcto!")
+            answer = int(input("\n Tu respuesta (número): "))
+            correcta = quiz.answer_question(question, answer)
+            puntos = quiz.get_points_for_question(question)
+            if correcta:
+                print(f"\n ¡Correcto! +{puntos} punto(s)\n")
             else:
-                print(f"Incorrecto. La respuesta correcta era: {question.options[question.correct_answer]}")
+                correcta_texto = question.options[question.correct_answer]
+                print(f"\n Incorrecto. La respuesta correcta era: {correcta_texto}")
+                print(f"0 puntos\n")
         except Exception as e:
-            print(f"Error: {e}")
+            print(f"\n[ERROR] Entrada inválida: {e}\n")
+            
     print("\n--- Resultado final ---")
     print(f"Respuestas correctas: {quiz.correct_answers}")
     print(f"Respuestas incorrectas: {quiz.incorrect_answers}")

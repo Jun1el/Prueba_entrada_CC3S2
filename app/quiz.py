@@ -1,4 +1,4 @@
-from trivia import Question
+from .trivia import Question
 class Quiz:
     def __init__(self):
         self.questions = []
@@ -30,3 +30,11 @@ class Quiz:
         else:
             self.incorrect_answers += 1
             return False
+    def get_points_for_question(self, question):
+        if question.difficulty.lower() == "fácil":
+            return 1
+        elif question.difficulty.lower() == "media":
+            return 2
+        elif question.difficulty.lower() == "difícil":
+            return 3
+        return 0
