@@ -44,3 +44,11 @@ link : https://github.com/Jun1el/Prueba_entrada_CC3S2
 - Mejoramos la interfaz del juego mostrando el score final, y los puntos por pregunta obtenidos y agregamos test para Quiz.py
 - Eliminamos __pycache__ del repositorio y actualizamos el .gitignore para no subir archivos innecesarios
 - Mejoramos la documentacion del proyecto 
+
+## Dia 6
+
+- Se movio la carpeta de test a la carpeta de app para una mejor integracion de los test en docker y su funcionamiento correcto
+- Creamos nuestro repositorio secreto SONAR_TOKEN para usar el scaneo de SONARCLOUD 
+- Creamos nuestro ci.yml para el funcionamiento de github actions 
+- Corregimos ciertos problemas de sonarqube en github actions desde la ramam de develop para no hacer merges innecesarios ya que hicimos muchos commits que al final usamos git reset para simplificar el historial y llegamos a arreglar todos los problemas de sonarqube
+- Finalmente implementamos las pruebas de integracion de la bd con el programa
