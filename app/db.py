@@ -1,13 +1,16 @@
 import psycopg2
+from dotenv import load_dotenv
+import os
 
+load_dotenv('.env')
 def get_connection():
     # conexion a la base de datos  
     return psycopg2.connect(
-        dbname="trivia_db",
-        user="postgres",
-        password="postgres",
-        host="db",
-        port="5432"
+        dbname=os.getenv("DB_NAME"),
+        user=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASSWORD"),
+        host=os.getenv("DB_HOST"),
+        port=os.getenv("DB_PORT")
     )
 
 def get_questions():
