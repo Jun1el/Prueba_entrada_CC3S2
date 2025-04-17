@@ -1,2 +1,12 @@
 # Ignorar el entorno virtual
 venv/
+=======
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+venv/
+.envrc
+.idea/
+*.sqlite3

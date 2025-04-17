@@ -1,0 +1,51 @@
+name: Python CI
+
+on:
+    push:
+        branches: [develop, main]
+    pull_request:
+        branches: [develop, main]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            -   name: Checkout repo
+                uses: actions/checkout@v2
+
+            -   name: Set up Python
+                uses: actions/setup-python@v2
+                with:
+                    python-version: '3.10'
+
+            -   name: Install dependencies
+                run: |
+                    python -m pip install --upgrade pip
+                    pip install -r requirements.txt
+
+            -   name: Run tests
+                run: |
+                    PYTHONPATH=app pytest
+            
+            -   name: Set up Java 17
+                uses: actions/setup-java@v3
+                with:
+                    distribution: 'temurin'
+                    java-version: '17'     
+
+            -   name: SonarQube Scan
+                uses: sonarsource/sonarcloud-github-action@master
+                with:
+                    args: >
+                        -Dsonar.projectKey=Jun1el_Prueba_entrada_CC3S2
+                        -Dsonar.organization=jun1el
+                        -Dsonar.sources=.
+
+                env:
+                    SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+                    SONAR_HOST_URL: https://sonarcloud.io
+            
+            -   name: Run Bandit (security analysis)
+                run: |
+                    bandit -r app/ -x app/test/
